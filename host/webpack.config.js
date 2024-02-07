@@ -7,6 +7,7 @@ module.exports = {
 	mode: "development",
 	entry: "./src/index.ts",
 	output: {
+		clean: true,
 		filename: "[name].[contenthash].bundle.js",
 		path: path.resolve(__dirname, "dist"),
 	},
@@ -19,22 +20,19 @@ module.exports = {
 			},
 		],
 	},
+	devServer: {
+		port: 8080,
+	},
 	resolve: {
 		extensions: [".tsx", ".ts", ".js"],
-	},
-	devServer: {
-		port: 8081,
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: "./public/index.html",
-			chunks: ["main"],
 		}),
 		new ModuleFederationPlugin({
-			name: "editor",
-			filename: "remoteEntry.js",
-			exposes: {
-				"./Editor": "./src/exposed.ts",
+			remotes: {
+				editorMFE: "editor@http://localhost:8081/remoteEntry.js",
 			},
 			shared: {
 				...deps,
