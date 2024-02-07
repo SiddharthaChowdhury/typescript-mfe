@@ -1,7 +1,7 @@
 {
 	"scripts": {
-		"host": "cd child && npm start",
-		"child": "cd host && npm start",
+		"host": "cd child && npm i && npm start",
+		"child": "cd host && npm i && npm start",
 		"start": "concurrently \"npm run host\" \"npm run child\""
 	},
 	"dependencies": {
