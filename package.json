@@ -1,0 +1,10 @@
+{
+	"scripts": {
+		"host": "cd child && npm start",
+		"child": "cd host && npm start",
+		"start": "concurrently \"npm run host\" \"npm run child\""
+	},
+	"dependencies": {
+		"concurrently": "^8.2.2"
+	}
+}

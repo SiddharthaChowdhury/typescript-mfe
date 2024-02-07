@@ -4,7 +4,7 @@ import { Editor } from "editorMFE/Editor";
 export default () => {
 	return (
 		<>
-			<div>Test HOST HMR: 12334432 </div>
+			<div>Test HOST HMR: 123344322 </div>
 			<h1>Container!</h1>
 			<Editor name={"Panther"} />
 		</>
